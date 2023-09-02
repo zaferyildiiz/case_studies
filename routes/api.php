@@ -23,11 +23,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
-Route::post("/login",[DeviceInformationController::class,"getDeviceInformation"])->name("getDeviceInformation");
+Route::post("/login",[DeviceInformationController::class,"getDeviceInformation"]);
 
 
 Route::post("/subscription",[SubscriptionController::class,"subscription"]);
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
-    Route::get('/admin-panel', 'AdminController@index');
+    Route::get('/admin-panel',[AdminController::class,"index"]);
 });
